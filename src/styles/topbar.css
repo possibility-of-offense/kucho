@@ -5,6 +5,36 @@
   grid-gap: 1rem;
 }
 
+@media (orientation: portrait) {
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-bar__rest {
+    display: flex;
+    align-items: center;
+  }
+  .top-bar__rest > * {
+    margin: 0 6px;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 1023px) {
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-bar__rest {
+    display: flex;
+    align-items: center;
+  }
+  .top-bar__rest > * {
+    margin: 0 6px;
+  }
+}
+
 @media (min-width: 1024px) {
   .top-bar {
     grid-template-columns: 50px auto;

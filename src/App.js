@@ -109,7 +109,9 @@ export default function App() {
                 value={{ portions: portions.slice().pop() }}
               >
                 <TopBarHeightContext.Provider value={height}>
-                  <Sidebar />
+                  <div>
+                    <Sidebar />
+                  </div>
                 </TopBarHeightContext.Provider>
                 <div>
                   <Routes>

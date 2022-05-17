@@ -1,6 +1,40 @@
+@media (orientation: portrait) {
+  aside {
+    min-height: auto !important;
+  }
+}
+
 .sidebar {
   background-color: #fff;
   padding: 20px;
+  position: relative;
+  transition: transform 0.3s ease-out;
+}
+
+.sidebar button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+.sidebar button.expand {
+  transform: translate(50%, -50%);
+}
+
+@media (orientation: portrait) {
+  .sidebar button {
+    transform: translate(0%, -50%);
+  }
+}
+
+.sidebar.close {
+  transform: translateX(-90%);
 }
 
 .sidebar__info {

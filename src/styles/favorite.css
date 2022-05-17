@@ -10,8 +10,20 @@
 
 .favorite-foods-wrapper__header {
   display: grid;
-  grid-template-columns: 200px 200px;
   grid-gap: 1rem;
+}
+
+@media (orientation: portrait) {
+  .favorite-foods-wrapper__header {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .favorite-foods-wrapper__header {
+    grid-template-columns: 200px 200px;
+  }
 }
 
 .see-favorite-foods > div p {
@@ -27,7 +39,12 @@
 
 .add-favorite {
   margin-top: 20px;
-  width: 30%;
+}
+
+@media (min-width: 1024px) {
+  .add-favorite {
+    width: 30%;
+  }
 }
 
 .add-favorite > div {

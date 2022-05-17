@@ -35,7 +35,7 @@ function reducer(state, action) {
         day: "Monday",
       };
     case "reset":
-      state = { day: "", amount: "" };
+      state = { day: "", amount: "", prefill: "" };
       return state;
     default:
       return state;

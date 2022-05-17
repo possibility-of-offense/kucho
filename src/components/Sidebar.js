@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataContext, TopBarHeightContext } from "../App";
 import "../styles/sidebar.css";
@@ -6,6 +6,7 @@ import "../styles/sidebar.css";
 export default function Sidebar() {
   const context = useContext(DataContext);
   const topBarHeight = useContext(TopBarHeightContext);
+  const [closeSidebar, setCloseSidebar] = useState(true);
 
   function calcHeight(heightToWithdraw) {
     if (heightToWithdraw) {
@@ -15,7 +16,18 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="sidebar" style={{ minHeight: calcHeight(topBarHeight) }}>
+    <aside
+      className={`sidebar box-shadow-2 ${closeSidebar ? "close" : ""}`}
+      style={{ minHeight: calcHeight(topBarHeight) }}
+    >
+      <button
+        className={`box-shadow-2 ${closeSidebar ? "expand" : ""}`}
+        onClick={() => {
+          setCloseSidebar((prev) => !prev);
+        }}
+      >
+        {!closeSidebar ? <>&lt;</> : <>&gt;</>}
+      </button>
       <div className="sidebar__info box-shadow-1">
         <p>
           <span>Name:</span> {context?.info?.name}

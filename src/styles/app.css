@@ -3,7 +3,7 @@
   grid-gap: 2rem;
 }
 
-@media (min-width: 1024px) {
+@media (orientation: landscape) {
   .app-main {
     grid-template-columns: 1fr 4fr;
   }
