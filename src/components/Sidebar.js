@@ -6,7 +6,7 @@ import "../styles/sidebar.css";
 export default function Sidebar() {
   const context = useContext(DataContext);
   const topBarHeight = useContext(TopBarHeightContext);
-  const [closeSidebar, setCloseSidebar] = useState(true);
+  const [closeSidebar, setCloseSidebar] = useState(false);
 
   function calcHeight(heightToWithdraw) {
     if (heightToWithdraw) {
