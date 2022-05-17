@@ -45,11 +45,11 @@ export default function Sidebar() {
         </p> */}
       </div>
       <div className="sidebar__routes">
-        <Link className="btn-2" to="today">
+        <Link className="btn-2" to="/kucho/today">
           Today information
         </Link>
         <br />
-        <Link className="btn-2" to="foods/see-favorite-foods">
+        <Link className="btn-2" to="/kucho/foods/see-favorite-foods">
           Favorite Foods
         </Link>
       </div>

@@ -14,14 +14,14 @@ const TopBar = React.forwardRef((props, ref) => {
   function handleClick() {
     const splitLocation = location.pathname.split("/");
     if (!splitLocation.includes("recommended")) {
-      navigate("/today");
+      navigate("/kucho/today");
     }
   }
 
   return (
     <div className="top-bar box-shadow-2" ref={ref}>
       <div className="top-bar__home">
-        <Link to="/">
+        <Link to="/kucho/">
           <img alt="Logo home" title="Logo Home" src="./pawprint.png" />
         </Link>
       </div>

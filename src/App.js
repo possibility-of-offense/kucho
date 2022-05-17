@@ -75,9 +75,9 @@ export default function App() {
               </TopBarHeightContext.Provider>
               <div>
                 <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/today/*" element={<Today />} />
-                  <Route path="/foods/*" element={<FavouriteFoods />} />
+                  <Route path="/kucho/" element={<Home />} />
+                  <Route path="/kucho/today/*" element={<Today />} />
+                  <Route path="/kucho/foods/*" element={<FavouriteFoods />} />
                 </Routes>
               </div>
             </TodayFoodContext.Provider>
