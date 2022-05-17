@@ -27,14 +27,7 @@ export default function Sidebar() {
         <p>
           <span>Age:</span> {context?.info?.age} years
         </p>
-        <p
-          onClick={() =>
-            handleClick({
-              id: "monday",
-              portion: 300,
-            })
-          }
-        >
+        <p>
           {/* TODO add aspect ratio */}
           <img className="box-shadow-2" src={context?.info?.url} />
         </p>
