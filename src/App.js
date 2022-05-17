@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar";
 import "./index.css";
 import "./styles/app.css";
 import FavouriteFoods from "./views/FavouriteFoods";
+import sound from "./dog.mp3";
 
 const data = {
   name: "Kucho",
@@ -35,6 +36,7 @@ export default function App() {
   const [rec, setRec] = useState("");
   const [height, setHeight] = useState(0);
   const [prefill, setPrefill] = useState(0);
+  const [audio, setAudio] = useState(() => new Audio(sound));
   const [alertBadge, setAlertBadge] = useState({ value: false, amount: 0 });
 
   const topBarRef = useRef(null);
@@ -46,6 +48,8 @@ export default function App() {
   const recCallback = useCallback((val) => {
     if (Number(val) < 100) {
       setRec("The recommended portion should be bigger than 100!");
+      alert("The dog is not happy with the portion!");
+      audio.play();
       setPrefill(100 - Number(val));
       return rec;
     } else {
