@@ -23,6 +23,9 @@ export default function AddFavoriteFood() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!val) {
+      return;
+    }
     context.setFavoriteFood(val);
     setVal("");
     divRef.current.querySelector("input").focus();
