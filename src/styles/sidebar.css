@@ -1,0 +1,21 @@
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.sidebar__info {
+  padding: 6px;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+}
+
+.sidebar__info p span {
+  display: inline-block;
+  text-decoration: underline;
+  font-weight: bold;
+  width: 60px;
+}
+
+.sidebar__routes {
+  margin-top: 35px;
+}

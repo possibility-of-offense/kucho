@@ -1,0 +1,127 @@
+.top-bar {
+  background-color: var(--primary);
+  padding: 0.6em 1em;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .top-bar {
+    grid-template-columns: 50px auto;
+  }
+}
+
+/* .top-bar .top-bar__home {} */
+
+.top-bar .top-bar__home img {
+  width: 40px;
+}
+
+@media (min-width: 1024px) {
+  .top-bar__rest {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .top-bar__rest > div {
+    margin: 0 10px;
+  }
+}
+
+.top-bar__rest h4 {
+  line-height: 1;
+}
+
+.add-food-portion.show-form .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.54);
+  z-index: 100;
+}
+
+.add-food-portion.show-form .add-food-portion__form {
+  animation: showForm 0.45s forwards;
+}
+
+@keyframes showForm {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.add-food-portion__form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 400px;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 1rem;
+  z-index: 1000;
+  opacity: 0;
+}
+
+.add-food-portion__form > div {
+  width: 100%;
+  line-height: 1.25;
+  border-radius: 6px;
+  border: 1px solid #ced0d4;
+  position: relative;
+  overflow: hidden;
+}
+.add-food-portion__form > div.active {
+  outline: 1px solid #1877f2;
+  outline-offset: 2px;
+}
+
+.add-food-portion__form div.active label {
+  transform: translate(5px, 3px) scale(0.75);
+  color: #1877f2;
+}
+
+.add-food-portion__form div input {
+  border: none;
+  outline: none;
+  padding: 20px 8px 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.add-food-portion__form div.select {
+  border: none;
+  border-radius: 0;
+}
+
+.add-food-portion__form div.select select {
+  width: 100%;
+  padding: 7px;
+  margin-top: 16px;
+  border: 1px solid #333;
+}
+
+.add-food-portion__form div label {
+  position: absolute;
+  transform: translate(5px, 14px) scale(1);
+  font-size: 14px;
+  transform-origin: top left;
+  transition: all 0.1s ease-out;
+}
+
+.add-food-portion__form div.select label {
+  position: static;
+  transform: none;
+  font-size: 14px;
+  transform-origin: top left;
+  transition: all 0.1s ease-out;
+}
+
+.add-food-portion__form h3 {
+  margin: 0 0 20px;
+}

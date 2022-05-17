@@ -1,0 +1,65 @@
+.favorite-foods-wrapper {
+  background-color: #fff;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.favorite-foods-wrapper h2 {
+  text-decoration: underline;
+}
+
+.favorite-foods-wrapper__header {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-gap: 1rem;
+}
+
+.see-favorite-foods > div p {
+  border: 1px solid #333;
+  border-top: none;
+  margin: 0;
+  padding: 7px;
+}
+
+.see-favorite-foods > div p:first-of-type {
+  border-top: 1px solid #333;
+}
+
+.add-favorite {
+  margin-top: 20px;
+  width: 30%;
+}
+
+.add-favorite > div {
+  width: 100%;
+  line-height: 1.25;
+  border-radius: 6px;
+  border: 1px solid #ced0d4;
+  position: relative;
+  overflow: hidden;
+}
+.add-favorite > div.active {
+  outline: 1px solid #1877f2;
+  outline-offset: 2px;
+}
+
+.add-favorite div.active label {
+  transform: translate(5px, 3px) scale(0.75);
+  color: #1877f2;
+}
+
+.add-favorite div input {
+  border: none;
+  outline: none;
+  padding: 20px 8px 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.add-favorite label {
+  position: absolute;
+  transform: translate(5px, 14px) scale(1);
+  font-size: 14px;
+  transform-origin: top left;
+  transition: all 0.1s ease-out;
+}

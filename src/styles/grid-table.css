@@ -1,0 +1,42 @@
+.grid-table {
+  width: 96%;
+  margin: 2rem auto;
+  background-color: #fff;
+}
+
+.grid-table__header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.grid-table__header > div {
+  border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
+  padding: 8px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.grid-table__body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.grid-table__body > div {
+  height: 400px;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+}
+
+.grid-table__body > div p {
+  background-color: var(--primary);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  border-bottom: 1px dashed #fff;
+}
+
+.grid-table__body > div p:last-of-type {
+  border-bottom: none;
+}
