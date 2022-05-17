@@ -7,10 +7,6 @@ export default function Sidebar() {
   const context = useContext(DataContext);
   const topBarHeight = useContext(TopBarHeightContext);
 
-  function handleClick(v) {
-    context.updatePortions(v);
-  }
-
   function calcHeight(heightToWithdraw) {
     if (heightToWithdraw) {
       const res = 100 - heightToWithdraw * 0.2;
@@ -31,11 +27,6 @@ export default function Sidebar() {
           {/* TODO add aspect ratio */}
           <img className="box-shadow-2" src={context?.info?.url} />
         </p>
-        {/* <p>
-          {context?.portions.map((el) => (
-            <span key={el.id}>{el.portion}</span>
-          ))}
-        </p> */}
       </div>
       <div className="sidebar__routes">
         <Link className="btn-2" to="/kucho/today">

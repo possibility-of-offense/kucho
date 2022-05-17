@@ -1,11 +1,13 @@
 import {
   useCallback,
   useContext,
-  useEffect,
   useReducer,
   useRef,
   useState,
+  useEffect,
+  useLayoutEffect,
 } from "react";
+import { SetRecommendations } from "../App";
 import Alert from "./Alert";
 
 function reducer(state, action) {
@@ -19,6 +21,11 @@ function reducer(state, action) {
       return {
         ...state,
         day: action.payload.day,
+      };
+    case "prefill":
+      return {
+        ...state,
+        prefill: action.payload.prefill,
       };
     case "submit":
       return state;
@@ -35,40 +42,26 @@ function reducer(state, action) {
   }
 }
 
-function helperFunction(days) {
-  if (days.length) {
-    const last = days[days.length - 1];
-
-    switch (last) {
-      case "Monday":
-        return "Tuesday";
-      case "Tuesday":
-        return "Wednesday";
-      case "Wednesday":
-        return "Thursday";
-      case "Thursday":
-        return "Friday";
-      case "Friday":
-        return "Saturday";
-      case "Saturday":
-        return "Sunday";
-      case "Sunday":
-        return "Sunday";
-    }
-  } else {
-    return "Monday";
-  }
-}
-
 export default function AddFoodPortion({ update, fillDays, days }) {
+  const rec = useContext(SetRecommendations);
+
   const [state, dispatch] = useReducer(reducer, {
     amount: "",
     day: "",
+    prefill: "",
   });
 
   const [showing, setShowing] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const foodAmountRef = useRef(null);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    dispatch({
+      type: "prefill",
+      payload: { prefill: rec.prefill > 0 ? rec.prefill : "" },
+    });
+  }, [rec.prefill]);
 
   function handleFoodInput(val) {
     if (foodAmountRef.current) {
@@ -99,7 +92,11 @@ export default function AddFoodPortion({ update, fillDays, days }) {
       return;
     }
 
-    update({ amount: state.amount, day: state.day });
+    const calcPortion = +state.amount + +state.prefill;
+
+    update({ amount: calcPortion, day: state.day });
+    rec.cb(calcPortion);
+
     setShowing(false);
 
     fillDays((prev) => [...prev, state.day]);
@@ -124,11 +121,23 @@ export default function AddFoodPortion({ update, fillDays, days }) {
             className="add-food-portion__form box-shadow-2"
           >
             <h3>Add Food</h3>
+            {state.prefill && (
+              <p>
+                <small>
+                  {" "}
+                  <strong>
+                    You need to add {state.prefill} to your next portion in
+                    order to give the recommended portion!
+                  </strong>
+                </small>
+              </p>
+            )}
             <div ref={foodAmountRef}>
               <label>Food Amount</label>
               <input
                 type="text"
                 value={state.amount}
+                ref={inputRef}
                 onChange={(e) =>
                   dispatch({ type: "add", payload: { amount: e.target.value } })
                 }
