@@ -5,7 +5,6 @@ import {
   useRef,
   useState,
   useEffect,
-  useLayoutEffect,
 } from "react";
 import { SetRecommendations } from "../App";
 import Alert from "./Alert";
@@ -56,12 +55,35 @@ export default function AddFoodPortion({ update, fillDays, days }) {
   const foodAmountRef = useRef(null);
   const inputRef = useRef(null);
 
+  const handleClick = useCallback(
+    (e) => {
+      setShowing(showing ? false : true);
+    },
+    [showing]
+  );
+
   useEffect(() => {
     dispatch({
       type: "prefill",
       payload: { prefill: rec.prefill > 0 ? rec.prefill : "" },
     });
   }, [rec.prefill]);
+
+  const closeForm = function (e) {
+    const key = e.key;
+
+    if (key === "Escape") {
+      setShowing(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", closeForm);
+
+    return () => {
+      window.removeEventListener("keydown", closeForm);
+    };
+  }, []);
 
   function handleFoodInput(val) {
     if (foodAmountRef.current) {
@@ -75,13 +97,6 @@ export default function AddFoodPortion({ update, fillDays, days }) {
       }
     }
   }
-
-  const handleClick = useCallback(
-    (e) => {
-      setShowing(showing ? false : true);
-    },
-    [showing]
-  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
