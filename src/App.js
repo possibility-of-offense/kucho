@@ -12,7 +12,7 @@ import sound from "./dog.mp3";
 const data = {
   name: "Kucho",
   age: 8,
-  url: "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-1/269981398_3107184919603839_1541037421008093540_n.jpg?stp=c0.51.160.160a_dst-jpg_p160x160&_nc_cat=110&ccb=1-6&_nc_sid=7206a8&_nc_ohc=GVQEYlKvznMAX8DOtVM&_nc_ht=scontent-sof1-1.xx&oh=00_AT_g8P5HMfjdQluk9ia1gnbgZbmW20UEiHm5jHL3NnLYeQ&oe=6287B7C0",
+  url: "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-1/269981398_3107184919603839_1541037421008093540_n.jpg?stp=c0.77.240.240a_dst-jpg_p240x240&_nc_cat=110&ccb=1-7&_nc_sid=7206a8&_nc_ohc=7lDfhUEpoL0AX8pkZv4&_nc_ht=scontent-sof1-1.xx&oh=00_AT_71pffBI4oSRz6GIclQ26i91bGjbehLyQPj-kSUMaJOg&oe=62939540",
   foodPortions: [],
   favoriteFoods: [],
   recommended: "",
