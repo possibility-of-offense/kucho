@@ -104,10 +104,7 @@ export default function App() {
             value={{ cb: recCallback, rec, prefill }}
           >
             <TopBar ref={topBarRef} alert={alertBadge} />
-            <h3 style={{ padding: "5px 15px", textDecoration: "underline" }}>
-              Попитали един мъдрец какво значи "Welcome"! Той казал - какво,
-              какво; черга за пред врата
-            </h3>
+
             <div className="app-main">
               <TodayFoodContext.Provider
                 value={{ portions: portions.slice().pop() }}
